@@ -8,7 +8,7 @@ from bs4 import BeautifulSoup
 # Function accesses the URL, creates a BS object and parses it for the two LI elements.
 # The first of these is the next due collection type and date. Function takes the integer
 # from the end of the URL on the site.
-def bin_day(locator):
+def which_bin(locator):
     url = 'https://bmsdchosting.net/waste-services/mid-suffolk-bin-collection/weeks/' + str(locator)
     try:
         html = urlopen(url)
@@ -18,7 +18,10 @@ def bin_day(locator):
         return e
     except URLError as e:
         return 'Server not available'
-    return li_list[0].get_text()
-
-
-print(bin_day(47159))
+    if 'refuse' in li_list[0].get_text():
+        response = 'Refuse'
+    elif 'recycling' in li_list[0].get_text():
+        response = 'Recycling'
+    else:
+        response = 'Unknown'
+    return response

@@ -13,3 +13,7 @@ The eInk screen really only does one thing, it displays and image. Images are bu
 3. Set the image `inkyphat.set_image(image)`
 4. Set the border `inkyphat.set_border(inky.RED)`
 5. Update the display `inkyphat.show()`
+
+## More about the image
+I'm using [Gimp](https://www.gimp.org) which is handy as Pimoroni provide a [palette](https://github.com/pimoroni/inky/blob/master/tools/inky-palette.gpl). Images are 212x104 PNG-8 format.
+
